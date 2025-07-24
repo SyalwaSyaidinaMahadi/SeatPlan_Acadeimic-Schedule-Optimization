@@ -46,7 +46,7 @@ const mockScheduleData: ScheduleSlot[] = [
     course: "Algoritma & Pemrograman",
     lecturer: "Dr. Budi Santoso",
     room: "Lab 1",
-    conflict: false
+    conflict: false,
   },
   {
     id: "2",
@@ -56,7 +56,7 @@ const mockScheduleData: ScheduleSlot[] = [
     course: "Basis Data",
     lecturer: "Prof. Siti Aminah",
     room: "R201",
-    conflict: true
+    conflict: true,
   },
   {
     id: "3",
@@ -66,53 +66,53 @@ const mockScheduleData: ScheduleSlot[] = [
     course: "Struktur Data",
     lecturer: "Prof. Eko Prasetyo",
     room: "Lab 1",
-    conflict: true
-  }
+    conflict: true,
+  },
 ];
 
 export const getSchedule: RequestHandler = (req, res) => {
   const { semester } = req.params;
-  
+
   const response: ScheduleResponse = {
     semester,
     slots: mockScheduleData,
     stats: {
       totalSlots: mockScheduleData.length,
-      conflicts: mockScheduleData.filter(slot => slot.conflict).length,
-      rooms: new Set(mockScheduleData.map(slot => slot.room)).size,
-      lecturers: new Set(mockScheduleData.map(slot => slot.lecturer)).size
-    }
+      conflicts: mockScheduleData.filter((slot) => slot.conflict).length,
+      rooms: new Set(mockScheduleData.map((slot) => slot.room)).size,
+      lecturers: new Set(mockScheduleData.map((slot) => slot.lecturer)).size,
+    },
   };
-  
+
   res.json(response);
 };
 
 export const uploadSchedule: RequestHandler = (req, res) => {
   // In a real application, this would process the uploaded Excel file
   // For now, we'll simulate a successful upload
-  
+
   setTimeout(() => {
     res.json({
       success: true,
       message: "File berhasil diupload dan diproses",
       conflicts: 3,
-      totalSlots: 234
+      totalSlots: 234,
     });
   }, 1000);
 };
 
 export const optimizeSchedule: RequestHandler = (req, res) => {
   const { semester, priority, maxIterations }: OptimizationRequest = req.body;
-  
+
   // Simulate optimization process
   const response: OptimizationResponse = {
     status: "completed",
     progress: 100,
     conflictsBefore: 8,
     conflictsAfter: 3,
-    duration: "2.3s"
+    duration: "2.3s",
   };
-  
+
   res.json(response);
 };
 
@@ -123,6 +123,6 @@ export const getOptimizationStatus: RequestHandler = (req, res) => {
     progress: 100,
     conflictsBefore: 8,
     conflictsAfter: 3,
-    duration: "2.3s"
+    duration: "2.3s",
   });
 };

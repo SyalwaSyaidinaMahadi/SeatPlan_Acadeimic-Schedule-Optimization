@@ -3,8 +3,21 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { CalendarIcon, UploadIcon, FileSpreadsheetIcon, ArrowLeftIcon, CheckCircleIcon, AlertCircleIcon } from "lucide-react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
+  CalendarIcon,
+  UploadIcon,
+  FileSpreadsheetIcon,
+  ArrowLeftIcon,
+  CheckCircleIcon,
+  AlertCircleIcon,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 
@@ -12,7 +25,9 @@ export default function Upload() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [semester, setSemester] = useState("");
   const [uploading, setUploading] = useState(false);
-  const [uploadStatus, setUploadStatus] = useState<"idle" | "success" | "error">("idle");
+  const [uploadStatus, setUploadStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -23,9 +38,9 @@ export default function Upload() {
 
   const handleUpload = async () => {
     if (!selectedFile || !semester) return;
-    
+
     setUploading(true);
-    
+
     // Simulate upload process
     setTimeout(() => {
       setUploading(false);
@@ -51,7 +66,9 @@ export default function Upload() {
               </Link>
               <CalendarIcon className="h-8 w-8 text-blue-600 mr-3" />
               <div>
-                <h1 className="text-2xl font-bold text-gray-900">Upload Excel</h1>
+                <h1 className="text-2xl font-bold text-gray-900">
+                  Upload Excel
+                </h1>
                 <p className="text-gray-600">Upload file jadwal semester</p>
               </div>
             </div>
@@ -77,18 +94,23 @@ export default function Upload() {
               {uploadStatus === "success" ? (
                 <div className="text-center py-8">
                   <CheckCircleIcon className="h-16 w-16 text-green-600 mx-auto mb-4" />
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Upload Berhasil!</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    Upload Berhasil!
+                  </h3>
                   <p className="text-gray-600 mb-4">
-                    File jadwal semester {semester} telah berhasil diupload dan sedang diproses.
+                    File jadwal semester {semester} telah berhasil diupload dan
+                    sedang diproses.
                   </p>
                   <div className="space-y-2">
-                    <Button onClick={resetForm} variant="outline" className="w-full">
+                    <Button
+                      onClick={resetForm}
+                      variant="outline"
+                      className="w-full"
+                    >
                       Upload File Lain
                     </Button>
                     <Link to="/calendar">
-                      <Button className="w-full">
-                        Lihat Kalender
-                      </Button>
+                      <Button className="w-full">Lihat Kalender</Button>
                     </Link>
                   </div>
                 </div>
@@ -122,12 +144,13 @@ export default function Upload() {
                     {selectedFile && (
                       <div className="mt-2 flex items-center text-sm text-gray-600">
                         <FileSpreadsheetIcon className="h-4 w-4 mr-1" />
-                        {selectedFile.name} ({Math.round(selectedFile.size / 1024)} KB)
+                        {selectedFile.name} (
+                        {Math.round(selectedFile.size / 1024)} KB)
                       </div>
                     )}
                   </div>
 
-                  <Button 
+                  <Button
                     onClick={handleUpload}
                     disabled={!selectedFile || !semester || uploading}
                     className="w-full"
@@ -168,7 +191,9 @@ export default function Upload() {
               </div>
 
               <div className="p-4 bg-green-50 rounded-lg">
-                <h4 className="font-medium text-green-900">Kolom yang Diperlukan</h4>
+                <h4 className="font-medium text-green-900">
+                  Kolom yang Diperlukan
+                </h4>
                 <ul className="text-sm text-green-700 mt-2 space-y-1">
                   <li>• Mata Kuliah</li>
                   <li>• Dosen</li>
@@ -182,7 +207,8 @@ export default function Upload() {
               <div className="p-4 bg-amber-50 rounded-lg">
                 <h4 className="font-medium text-amber-900">Proses Optimasi</h4>
                 <p className="text-sm text-amber-700 mt-1">
-                  Setelah upload, sistem akan otomatis menganalisis dan mengoptimasi jadwal untuk menghindari konflik ruang dan waktu.
+                  Setelah upload, sistem akan otomatis menganalisis dan
+                  mengoptimasi jadwal untuk menghindari konflik ruang dan waktu.
                 </p>
               </div>
 
@@ -206,24 +232,52 @@ export default function Upload() {
           <CardContent>
             <div className="space-y-3">
               {[
-                { semester: "2024/1", file: "jadwal_semester_1_2024.xlsx", date: "2024-01-15", status: "success", conflicts: 3 },
-                { semester: "2023/2", file: "jadwal_semester_2_2023.xlsx", date: "2024-01-10", status: "success", conflicts: 0 },
-                { semester: "2023/1", file: "jadwal_semester_1_2023.xlsx", date: "2023-12-20", status: "success", conflicts: 1 }
+                {
+                  semester: "2024/1",
+                  file: "jadwal_semester_1_2024.xlsx",
+                  date: "2024-01-15",
+                  status: "success",
+                  conflicts: 3,
+                },
+                {
+                  semester: "2023/2",
+                  file: "jadwal_semester_2_2023.xlsx",
+                  date: "2024-01-10",
+                  status: "success",
+                  conflicts: 0,
+                },
+                {
+                  semester: "2023/1",
+                  file: "jadwal_semester_1_2023.xlsx",
+                  date: "2023-12-20",
+                  status: "success",
+                  conflicts: 1,
+                },
               ].map((upload, index) => (
-                <div key={index} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                <div
+                  key={index}
+                  className="flex items-center justify-between p-4 bg-gray-50 rounded-lg"
+                >
                   <div className="flex items-center">
                     <FileSpreadsheetIcon className="h-8 w-8 text-green-600 mr-3" />
                     <div>
                       <p className="font-medium text-gray-900">{upload.file}</p>
-                      <p className="text-sm text-gray-600">Semester {upload.semester} • {upload.date}</p>
+                      <p className="text-sm text-gray-600">
+                        Semester {upload.semester} • {upload.date}
+                      </p>
                     </div>
                   </div>
                   <div className="text-right">
-                    <Badge variant="default" className="bg-green-100 text-green-800">
+                    <Badge
+                      variant="default"
+                      className="bg-green-100 text-green-800"
+                    >
                       Berhasil
                     </Badge>
                     {upload.conflicts > 0 && (
-                      <p className="text-xs text-red-600 mt-1">{upload.conflicts} konflik terdeteksi</p>
+                      <p className="text-xs text-red-600 mt-1">
+                        {upload.conflicts} konflik terdeteksi
+                      </p>
                     )}
                   </div>
                 </div>

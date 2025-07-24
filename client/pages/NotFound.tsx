@@ -24,7 +24,9 @@ const NotFound = () => {
             <div className="flex items-center">
               <CalendarIcon className="h-8 w-8 text-blue-600 mr-3" />
               <div>
-                <h1 className="text-2xl font-bold text-gray-900">Academic Scheduler</h1>
+                <h1 className="text-2xl font-bold text-gray-900">
+                  Academic Scheduler
+                </h1>
                 <p className="text-gray-600">Sistem Penjadwalan Otomatis</p>
               </div>
             </div>
@@ -43,15 +45,20 @@ const NotFound = () => {
               <SearchIcon className="h-16 w-16 text-gray-400" />
             </div>
             <CardTitle className="text-4xl text-gray-900 mb-2">404</CardTitle>
-            <CardTitle className="text-xl text-gray-600">Halaman Tidak Ditemukan</CardTitle>
+            <CardTitle className="text-xl text-gray-600">
+              Halaman Tidak Ditemukan
+            </CardTitle>
           </CardHeader>
           <CardContent>
             <p className="text-gray-600 mb-8 max-w-md mx-auto">
-              Maaf, halaman yang Anda cari tidak dapat ditemukan.
-              Mungkin URL salah atau halaman telah dipindahkan.
+              Maaf, halaman yang Anda cari tidak dapat ditemukan. Mungkin URL
+              salah atau halaman telah dipindahkan.
             </p>
             <p className="text-sm text-gray-500 mb-6">
-              URL yang diakses: <code className="bg-gray-100 px-2 py-1 rounded">{location.pathname}</code>
+              URL yang diakses:{" "}
+              <code className="bg-gray-100 px-2 py-1 rounded">
+                {location.pathname}
+              </code>
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link to="/">

@@ -1,7 +1,12 @@
 import express from "express";
 import cors from "cors";
 import { handleDemo } from "./routes/demo";
-import { getSchedule, uploadSchedule, optimizeSchedule, getOptimizationStatus } from "./routes/schedule";
+import {
+  getSchedule,
+  uploadSchedule,
+  optimizeSchedule,
+  getOptimizationStatus,
+} from "./routes/schedule";
 
 export function createServer() {
   const app = express();

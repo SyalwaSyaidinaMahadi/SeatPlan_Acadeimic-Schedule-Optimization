@@ -1,8 +1,23 @@
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { CalendarIcon, ArrowLeftIcon, FilterIcon, DownloadIcon, AlertTriangleIcon, ClockIcon, MapPinIcon, UserIcon } from "lucide-react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
+  CalendarIcon,
+  ArrowLeftIcon,
+  FilterIcon,
+  DownloadIcon,
+  AlertTriangleIcon,
+  ClockIcon,
+  MapPinIcon,
+  UserIcon,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 
@@ -12,40 +27,136 @@ export default function Calendar() {
   const [selectedView, setSelectedView] = useState("week");
 
   const timeSlots = [
-    "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", 
-    "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"
+    "07:00",
+    "08:00",
+    "09:00",
+    "10:00",
+    "11:00",
+    "12:00",
+    "13:00",
+    "14:00",
+    "15:00",
+    "16:00",
+    "17:00",
+    "18:00",
   ];
 
   const days = ["Senin", "Selasa", "Rabu", "Kamis", "Jumat"];
 
   const scheduleData = {
-    "Senin": [
-      { time: "08:00-09:40", course: "Algoritma & Pemrograman", lecturer: "Dr. Budi Santoso", room: "Lab 1", hasConflict: false },
-      { time: "10:00-11:40", course: "Basis Data", lecturer: "Prof. Siti Aminah", room: "R201", hasConflict: true },
-      { time: "13:00-14:40", course: "Jaringan Komputer", lecturer: "Dr. Ahmad Fauzi", room: "Lab 2", hasConflict: false }
+    Senin: [
+      {
+        time: "08:00-09:40",
+        course: "Algoritma & Pemrograman",
+        lecturer: "Dr. Budi Santoso",
+        room: "Lab 1",
+        hasConflict: false,
+      },
+      {
+        time: "10:00-11:40",
+        course: "Basis Data",
+        lecturer: "Prof. Siti Aminah",
+        room: "R201",
+        hasConflict: true,
+      },
+      {
+        time: "13:00-14:40",
+        course: "Jaringan Komputer",
+        lecturer: "Dr. Ahmad Fauzi",
+        room: "Lab 2",
+        hasConflict: false,
+      },
     ],
-    "Selasa": [
-      { time: "07:00-08:40", course: "Matematika Diskrit", lecturer: "Dr. Rina Wati", room: "R102", hasConflict: false },
-      { time: "09:00-10:40", course: "Pemrograman Web", lecturer: "M.Kom. Dedi Susanto", room: "Lab 3", hasConflict: false },
-      { time: "14:00-15:40", course: "Sistem Operasi", lecturer: "Dr. Lisa Permata", room: "R203", hasConflict: false }
+    Selasa: [
+      {
+        time: "07:00-08:40",
+        course: "Matematika Diskrit",
+        lecturer: "Dr. Rina Wati",
+        room: "R102",
+        hasConflict: false,
+      },
+      {
+        time: "09:00-10:40",
+        course: "Pemrograman Web",
+        lecturer: "M.Kom. Dedi Susanto",
+        room: "Lab 3",
+        hasConflict: false,
+      },
+      {
+        time: "14:00-15:40",
+        course: "Sistem Operasi",
+        lecturer: "Dr. Lisa Permata",
+        room: "R203",
+        hasConflict: false,
+      },
     ],
-    "Rabu": [
-      { time: "08:00-09:40", course: "Struktur Data", lecturer: "Prof. Eko Prasetyo", room: "Lab 1", hasConflict: true },
-      { time: "10:00-11:40", course: "Rekayasa Perangkat Lunak", lecturer: "Dr. Maya Sari", room: "R204", hasConflict: false },
-      { time: "13:00-14:40", course: "Kecerdasan Buatan", lecturer: "Dr. Rudi Hartono", room: "Lab 4", hasConflict: false }
+    Rabu: [
+      {
+        time: "08:00-09:40",
+        course: "Struktur Data",
+        lecturer: "Prof. Eko Prasetyo",
+        room: "Lab 1",
+        hasConflict: true,
+      },
+      {
+        time: "10:00-11:40",
+        course: "Rekayasa Perangkat Lunak",
+        lecturer: "Dr. Maya Sari",
+        room: "R204",
+        hasConflict: false,
+      },
+      {
+        time: "13:00-14:40",
+        course: "Kecerdasan Buatan",
+        lecturer: "Dr. Rudi Hartono",
+        room: "Lab 4",
+        hasConflict: false,
+      },
     ],
-    "Kamis": [
-      { time: "07:00-08:40", course: "Grafika Komputer", lecturer: "M.Kom. Andi Wijaya", room: "Lab 5", hasConflict: false },
-      { time: "09:00-10:40", course: "Keamanan Sistem", lecturer: "Dr. Novi Indah", room: "R205", hasConflict: false },
-      { time: "15:00-16:40", course: "Mobile Programming", lecturer: "M.Kom. Fajar Nugroho", room: "Lab 3", hasConflict: false }
+    Kamis: [
+      {
+        time: "07:00-08:40",
+        course: "Grafika Komputer",
+        lecturer: "M.Kom. Andi Wijaya",
+        room: "Lab 5",
+        hasConflict: false,
+      },
+      {
+        time: "09:00-10:40",
+        course: "Keamanan Sistem",
+        lecturer: "Dr. Novi Indah",
+        room: "R205",
+        hasConflict: false,
+      },
+      {
+        time: "15:00-16:40",
+        course: "Mobile Programming",
+        lecturer: "M.Kom. Fajar Nugroho",
+        room: "Lab 3",
+        hasConflict: false,
+      },
     ],
-    "Jumat": [
-      { time: "08:00-09:40", course: "Data Mining", lecturer: "Prof. Dewi Kartika", room: "R301", hasConflict: false },
-      { time: "10:00-11:40", course: "Interaksi Manusia Komputer", lecturer: "Dr. Hendra Kurnia", room: "R302", hasConflict: false }
-    ]
+    Jumat: [
+      {
+        time: "08:00-09:40",
+        course: "Data Mining",
+        lecturer: "Prof. Dewi Kartika",
+        room: "R301",
+        hasConflict: false,
+      },
+      {
+        time: "10:00-11:40",
+        course: "Interaksi Manusia Komputer",
+        lecturer: "Dr. Hendra Kurnia",
+        room: "R302",
+        hasConflict: false,
+      },
+    ],
   };
 
-  const conflictCount = Object.values(scheduleData).flat().filter(item => item.hasConflict).length;
+  const conflictCount = Object.values(scheduleData)
+    .flat()
+    .filter((item) => item.hasConflict).length;
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -59,13 +170,18 @@ export default function Calendar() {
               </Link>
               <CalendarIcon className="h-8 w-8 text-blue-600 mr-3" />
               <div>
-                <h1 className="text-2xl font-bold text-gray-900">Kalender Jadwal</h1>
+                <h1 className="text-2xl font-bold text-gray-900">
+                  Kalender Jadwal
+                </h1>
                 <p className="text-gray-600">Tampilan jadwal kuliah semester</p>
               </div>
             </div>
             <div className="flex items-center space-x-4">
               {conflictCount > 0 && (
-                <Badge variant="destructive" className="bg-red-100 text-red-800">
+                <Badge
+                  variant="destructive"
+                  className="bg-red-100 text-red-800"
+                >
                   <AlertTriangleIcon className="h-3 w-3 mr-1" />
                   {conflictCount} Konflik
                 </Badge>
@@ -83,7 +199,10 @@ export default function Calendar() {
         <div className="flex flex-wrap gap-4 items-center justify-between bg-white p-4 rounded-lg shadow-sm">
           <div className="flex flex-wrap gap-4 items-center">
             <div>
-              <Select value={selectedSemester} onValueChange={setSelectedSemester}>
+              <Select
+                value={selectedSemester}
+                onValueChange={setSelectedSemester}
+              >
                 <SelectTrigger className="w-32">
                   <SelectValue />
                 </SelectTrigger>
@@ -118,9 +237,7 @@ export default function Calendar() {
               Export
             </Button>
             <Link to="/optimization">
-              <Button size="sm">
-                Optimasi Ulang
-              </Button>
+              <Button size="sm">Optimasi Ulang</Button>
             </Link>
           </div>
         </div>
@@ -131,7 +248,9 @@ export default function Calendar() {
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center justify-between">
-              <span>Jadwal Minggu {selectedWeek} - Semester {selectedSemester}</span>
+              <span>
+                Jadwal Minggu {selectedWeek} - Semester {selectedSemester}
+              </span>
               <div className="flex items-center space-x-4 text-sm">
                 <div className="flex items-center">
                   <div className="w-3 h-3 bg-green-500 rounded mr-2"></div>
@@ -149,8 +268,11 @@ export default function Calendar() {
               <div className="grid grid-cols-6 gap-1 min-w-[800px]">
                 {/* Header */}
                 <div className="p-2 font-medium text-gray-600 text-sm">Jam</div>
-                {days.map(day => (
-                  <div key={day} className="p-2 font-medium text-gray-900 text-center bg-gray-50">
+                {days.map((day) => (
+                  <div
+                    key={day}
+                    className="p-2 font-medium text-gray-900 text-center bg-gray-50"
+                  >
                     {day}
                   </div>
                 ))}
@@ -161,21 +283,26 @@ export default function Calendar() {
                     <div className="p-2 text-sm text-gray-600 border-r border-gray-200 font-medium">
                       {time}
                     </div>
-                    {days.map(day => {
+                    {days.map((day) => {
                       const daySchedule = scheduleData[day] || [];
-                      const currentSlot = daySchedule.find(slot => {
-                        const startTime = slot.time.split('-')[0];
+                      const currentSlot = daySchedule.find((slot) => {
+                        const startTime = slot.time.split("-")[0];
                         return startTime === time;
                       });
 
                       return (
-                        <div key={`${day}-${time}`} className="border border-gray-200 min-h-[60px] p-1">
+                        <div
+                          key={`${day}-${time}`}
+                          className="border border-gray-200 min-h-[60px] p-1"
+                        >
                           {currentSlot && (
-                            <div className={`p-2 rounded text-xs ${
-                              currentSlot.hasConflict 
-                                ? 'bg-red-100 border-red-300 border' 
-                                : 'bg-green-100 border-green-300 border'
-                            }`}>
+                            <div
+                              className={`p-2 rounded text-xs ${
+                                currentSlot.hasConflict
+                                  ? "bg-red-100 border-red-300 border"
+                                  : "bg-green-100 border-green-300 border"
+                              }`}
+                            >
                               <div className="font-medium text-gray-900 mb-1">
                                 {currentSlot.course}
                               </div>
@@ -231,7 +358,9 @@ export default function Calendar() {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-red-600">Konflik Terdeteksi:</span>
-                  <span className="font-medium text-red-600">{conflictCount}</span>
+                  <span className="font-medium text-red-600">
+                    {conflictCount}
+                  </span>
                 </div>
               </div>
             </CardContent>
@@ -271,15 +400,21 @@ export default function Calendar() {
               <div className="space-y-2">
                 <div className="flex justify-between">
                   <span className="text-gray-600">Pagi (07-11):</span>
-                  <span className="font-medium text-green-600">Rendah konflik</span>
+                  <span className="font-medium text-green-600">
+                    Rendah konflik
+                  </span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">Siang (11-15):</span>
-                  <span className="font-medium text-amber-600">Sedang konflik</span>
+                  <span className="font-medium text-amber-600">
+                    Sedang konflik
+                  </span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">Sore (15-18):</span>
-                  <span className="font-medium text-green-600">Rendah konflik</span>
+                  <span className="font-medium text-green-600">
+                    Rendah konflik
+                  </span>
                 </div>
               </div>
             </CardContent>

@@ -22,7 +22,9 @@ export default function Placeholder({ title, description }: PlaceholderProps) {
               </Link>
               <CalendarIcon className="h-8 w-8 text-blue-600 mr-3" />
               <div>
-                <h1 className="text-2xl font-bold text-gray-900">Academic Scheduler</h1>
+                <h1 className="text-2xl font-bold text-gray-900">
+                  Academic Scheduler
+                </h1>
                 <p className="text-gray-600">Sistem Penjadwalan Otomatis</p>
               </div>
             </div>
@@ -43,12 +45,11 @@ export default function Placeholder({ title, description }: PlaceholderProps) {
             <CardTitle className="text-2xl text-gray-900">{title}</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-gray-600 mb-8 max-w-md mx-auto">
-              {description}
-            </p>
+            <p className="text-gray-600 mb-8 max-w-md mx-auto">{description}</p>
             <p className="text-sm text-gray-500 mb-6">
-              Halaman ini sedang dalam tahap pengembangan. Silakan kembali ke dashboard 
-              atau hubungi tim pengembang untuk informasi lebih lanjut.
+              Halaman ini sedang dalam tahap pengembangan. Silakan kembali ke
+              dashboard atau hubungi tim pengembang untuk informasi lebih
+              lanjut.
             </p>
             <div className="space-y-3">
               <Link to="/">
@@ -57,7 +58,8 @@ export default function Placeholder({ title, description }: PlaceholderProps) {
                 </Button>
               </Link>
               <div className="text-sm text-gray-500">
-                Atau lanjutkan memberikan prompt untuk mengisi konten halaman ini
+                Atau lanjutkan memberikan prompt untuk mengisi konten halaman
+                ini
               </div>
             </div>
           </CardContent>
