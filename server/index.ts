@@ -18,5 +18,11 @@ export function createServer() {
 
   app.get("/api/demo", handleDemo);
 
+  // Schedule API routes
+  app.get("/api/schedule/:semester", getSchedule);
+  app.post("/api/schedule/upload", uploadSchedule);
+  app.post("/api/schedule/optimize", optimizeSchedule);
+  app.get("/api/optimization/status", getOptimizationStatus);
+
   return app;
 }
